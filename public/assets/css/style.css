@@ -1,10 +1,10 @@
 .navbar-brand {
-  color: #E20202 !important;
+  color: white !important;
   font-size: 30px; }
 
 .navbar {
   margin-bottom: 0;
-  background-color: transparent !important; }
+  background-color: #E20202 !important; }
   .navbar.navbar-default {
     border: none;
     border-bottom: 1px solid #E20202; }
