@@ -1,2 +1,16 @@
 #node_module files#
+#############
 node_modules/*
+
+
+#Sass files#
+#############
+.sass-cache/*
+public/assets/css/*.map
+
+
+#npm logs#
+npm-debug.log
+
+
+
