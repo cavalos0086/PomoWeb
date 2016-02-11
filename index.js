@@ -7,6 +7,10 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 	extended: true
 })); 
 
+// app configuration
+app.use(express.static(__dirname+'/public'));
+app.use('/node_modules', express.static(__dirname +'/node_modules'));
+
 // application
 app.get('/', function(req, res){
 	res.sendFile(__dirname + '/index.html');
