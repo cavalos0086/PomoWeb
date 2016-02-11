@@ -1,3 +1,22 @@
+.navbar-brand {
+  color: #E20202 !important;
+  font-size: 30px; }
 
+.navbar {
+  margin-bottom: 0;
+  background-color: transparent !important; }
+  .navbar.navbar-default {
+    border: none;
+    border-bottom: 1px solid #E20202; }
+
+#landing {
+  text-align: center;
+  height: 100vh; }
+
+.jumbotron {
+  background-color: transparent !important; }
+
+#pomoImage {
+  animation-delay: 1s; }
 
 /*# sourceMappingURL=style.css.map */

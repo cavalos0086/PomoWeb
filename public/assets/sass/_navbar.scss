@@ -1,0 +1,15 @@
+$pomoColor:#E20202;
+
+.navbar-brand{
+	color:$pomoColor!important;
+	font-size:30px;
+}
+
+.navbar{
+	margin-bottom:0;
+	background-color:transparent!important;
+	&.navbar-default{
+		border:none;
+		border-bottom:1px solid $pomoColor;
+	}
+}
