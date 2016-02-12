@@ -1,6 +1,7 @@
 .navbar-brand {
   color: #ba301e !important;
-  font-size: 30px; }
+  font-size: 30px;
+  font-family: "Roboto"; }
 
 .navbar {
   margin-bottom: 0;
@@ -15,7 +16,7 @@
 
 #landingText {
   animation-delay: 2s;
-  font-family: Arvo; }
+  font-family: "Roboto"; }
 
 .jumbotron {
   background-color: transparent !important; }
@@ -31,11 +32,26 @@
   #sideBar > ul > li {
     margin: 20px 0; }
   #sideBar > ul > li > a {
-    color: #ba301e; }
+    color: #ba301e;
+    font-family: "Roboto"; }
     #sideBar > ul > li > a:hover {
       font-size: 20px;
       background-color: #f7f7f7; }
   #sideBar > ul > li > a > i {
     color: #ba301e; }
+
+#add {
+  margin-top: 20px; }
+
+.addTodo {
+  font-family: "Roboto"; }
+  .addTodo > a {
+    color: #449fe0; }
+    .addTodo > a > i {
+      line-height: 30px; }
+  .addTodo > p {
+    display: inline;
+    font-size: 30px;
+    color: #263647; }
 
 /*# sourceMappingURL=style.css.map */

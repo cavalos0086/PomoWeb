@@ -1,0 +1,19 @@
+#add{
+	margin-top:20px;
+}
+
+.addTodo{
+	font-family:$main-font;
+	
+	& > a{
+		color:$light-blue;
+		& > i{
+			line-height:30px;
+		}
+	}
+	& > p{
+		display:inline;
+		font-size:30px;
+		color:$black;
+	}
+}

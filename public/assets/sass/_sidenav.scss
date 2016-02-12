@@ -11,6 +11,7 @@
 
 	& > ul > li > a{
 		color:$pomoColor;
+		font-family:$main-font;
 		&:hover{
 			font-size:20px;
 			background-color:$gray;
