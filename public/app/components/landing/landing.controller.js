@@ -3,7 +3,7 @@ angular.module('pomoWebApp')
 		$scope.goHome = function(){ 
 			$timeout(function(){
 				 $state.go('home');
-				}, 3000);
+				}, 5000);
 		};
 
 		$scope.goHome();
