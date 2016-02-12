@@ -29,4 +29,12 @@ angular.module('pomoWebApp',[
 				},
 			}
 		})
+		.state('home.todoList',{
+			url:'/todoList',
+			views:{
+				todoApp:{
+					templateUrl:'app/components/todoList/todoList.controller.js'
+				}
+			}
+		})
 	});
