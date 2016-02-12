@@ -5,5 +5,7 @@ angular.module('pomoWebApp')
 				 $state.go('home');
 				}, 3000);
 		};
+
+		$scope.goHome();
 		
 	});
