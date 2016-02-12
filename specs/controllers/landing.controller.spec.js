@@ -15,7 +15,7 @@ describe('Landing Controller', function() {
 
 	it('should redirect to the home page after 3 seconds', function() {
 		$scope.goHome();
-		// $timeout.flush(3500);
+		$timeout.flush(3500);
 		dump(angular.mock.dump($location));
 		expect($location.$$url).toBe('/home');
 	});

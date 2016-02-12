@@ -13,10 +13,14 @@
   text-align: center;
   height: 100vh; }
 
+#landingText {
+  animation-delay: 2s;
+  font-family: Arvo; }
+
 .jumbotron {
   background-color: transparent !important; }
 
 #pomoImage {
-  animation-delay: 1s; }
+  animation-duration: 2s; }
 
 /*# sourceMappingURL=style.css.map */

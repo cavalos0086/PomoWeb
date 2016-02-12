@@ -13,12 +13,5 @@ angular.module('pomoWebApp',[
 				}
 			}
 		})
-		.state('home', {
-			url:'/home',
-			views:{
-				main:{
-					templateUrl:'app/components/home/home.html'
-				}
-			}
-		})
+		
 	});
