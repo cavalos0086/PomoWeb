@@ -6,3 +6,7 @@
 @import "landing";
 @import "sidenav";
 @import "addTodo";
+
+*{
+	font-family:$main-font;
+}

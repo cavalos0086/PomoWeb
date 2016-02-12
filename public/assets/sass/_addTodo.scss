@@ -3,7 +3,6 @@
 }
 
 .addTodo{
-	font-family:$main-font;
 	
 	& > a{
 		color:$light-blue;
@@ -15,5 +14,13 @@
 		display:inline;
 		font-size:30px;
 		color:$black;
+	}
+}
+
+#addForm{
+	margin-top:10%;
+	& button{
+		background-color:$dark-blue;
+		color:$white;
 	}
 }
