@@ -1,0 +1,22 @@
+
+
+#sideBar{
+	background-color:$gray;
+	height:100vh;
+	padding-top:5%;
+	text-align:center;
+	& > ul > li{
+		margin:20px 0;
+	}
+
+	& > ul > li > a{
+		color:$pomoColor;
+		&:hover{
+			font-size:20px;
+			background-color:$gray;
+		}
+	}
+	& > ul > li > a > i{
+		color:$pomoColor;
+	}
+}

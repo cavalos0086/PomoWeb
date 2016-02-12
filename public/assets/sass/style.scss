@@ -1,3 +1,7 @@
-$pomoColor:#E20202;
+// define variables used across files
+@import "variable";
+
+// rules on each part of the webapp
 @import "navbar";
 @import "landing";
+@import "sidenav";

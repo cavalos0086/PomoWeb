@@ -20,12 +20,12 @@
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand">PomoWeb</a>
+				<a class="navbar-brand" ui-sref="home">PomoWeb</a>
 			</div>
 		</div>
 	</nav>
 	
-	<div class="container-fluid">
+	<div class="container-fluid" style="padding-left: 0;">
 		<div ui-view="main">
 			
 		</div>
@@ -39,6 +39,7 @@
 
 	<script src="app/app.js"></script>
 	<script type="text/javascript" src="app/components/landing/landing.controller.js"></script>
+	<script type="text/javascript" src="app/components/home/home.controller.js"></script>
 
 </body>
 </html>
