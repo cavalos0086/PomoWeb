@@ -22,21 +22,18 @@
 	</nav>
 	
 	<div class="container-fluid">
-		<div class="jumbotron animated bounceInDown" id="landing">
-			<div class="container">
-				<br/>
-				<h1>WELCOME TO</h1>
-				<h1>MY POMODORO WEB APP</h1>
-
-				<div style="display:flex;justify-content:center;align-items:center;">
-					<img src="assets/images/pomodoro_timer.jpg" class="animated slideInRight" id="pomoImage">
-				</div>
-
-			</div>
-		</div> <!-- ./jumbotron #/landing-->
-
+		<div ui-view="main">
+			
+		</div>
 	</div> 
+	
+	<script src="node_modules/angular/angular.min.js"></script>
+	<script src="node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="node_modules/angular-route/angular-route.min.js"></script>
+	<script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
 
+
+	<script src="app/app.js"></script>
 
 </body>
 </html>
