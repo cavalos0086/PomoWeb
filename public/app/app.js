@@ -21,4 +21,12 @@ angular.module('pomoWebApp',[
 				}
 			}
 		})
+		.state('home.addTodo',{
+			url:'/addTodo',
+			views:{
+				todoApp:{
+					templateUrl:'app/components/addTodo/addTodo.html'
+				},
+			}
+		})
 	});
