@@ -13,13 +13,13 @@ describe('toDo Services and Function', function() {
 		$http = _$http_;
 		toDoItem = _toDoItem_;
 
-		newItem1 = toDoItem('sample 1');
-		newItem2 = toDoItem('sample 2','this contains a description');
-		newItem3 = toDoItem('sample 3', 'this contains number of pomodoros and desc', 4);
+		newItem1 = new toDoItem('sample 1');
+		newItem2 = new toDoItem('sample 2','this contains a description');
+		newItem3 = new toDoItem('sample 3', 'this contains number of pomodoros and desc', 4);
 
 		toDoList = [newItem1, newItem2, newItem3];
 
-		var response;
+		var response = '';
 
 	}));
 
@@ -131,11 +131,11 @@ describe('toDo Services and Function', function() {
 				.respond(200);
 
 				toDoFuntions.delete(toDoId).
-					then(function(){
-						response = 'OK';
-					}, function(){
-						response = 'Error!';
-					})
+				then(function(){
+					response = 'OK';
+				}, function(){
+					response = 'Error!';
+				})
 
 				expect($httpBackend.flush).not.toThrow();
 				
@@ -150,11 +150,11 @@ describe('toDo Services and Function', function() {
 				.respond(500);
 
 				toDoFuntions.delete(toDoId)
-					.then(function(){
-						response = 'OK';
-					}, function(){
-						response = 'Error!';
-					});
+				.then(function(){
+					response = 'OK';
+				}, function(){
+					response = 'Error!';
+				});
 
 				$httpBackend.flush(1);
 				expect(response).toBe('Error!');
@@ -163,6 +163,47 @@ describe('toDo Services and Function', function() {
 
 		});
 
+		describe('Edit function test', function() {
+			
+			it('Edit function should send a PUT request', function() {
+				var item = newItem1;
+				response = '';
+
+				$httpBackend.expectPUT('/db/editTodo', newItem2)
+				.respond(200);
+
+				toDoFuntions.edit(newItem2)
+					.then(function(){
+						item = newItem2;
+						response = 'OK';
+					}, function(){
+						response = 'Error!';
+					})
+				
+				$httpBackend.flush(1);
+				expect(item).toBe(newItem2);
+				
+			});
+
+			it('Edit function should handle errors', function() {
+				var item = newItem1;
+				response = '';
+
+				$httpBackend.expectPUT('/db/editTodo', newItem2)
+				.respond(500);
+
+				toDoFuntions.edit(newItem2)
+					.then(function(){
+						item = newItem2;
+						response = 'OK';
+					}, function(){
+						response = 'Error!';
+					})
+				
+				$httpBackend.flush(1);
+				expect(item).toBe(newItem1);
+			});
+		});
 
 	});
 

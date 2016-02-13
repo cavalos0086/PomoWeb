@@ -31,7 +31,7 @@ angular.module('pomoWebApp')
 
 
 		this.delete = function(toDoId){
-			
+
 			$http.post('/db/deleteTodo', toDoId)
 				.then(function(){
 					deferred.resolve();
@@ -43,7 +43,17 @@ angular.module('pomoWebApp')
 		};
 
 
-		this.edit = function(){};
+		this.edit = function(newTodo){
+
+			$http.put('/db/editTodo', newTodo)
+				.then(function(){
+					deferred.resolve();
+				}, function(){
+					deferred.reject();
+				});
+
+			return deferred.promise;
+		};
 
 
 	}]);
