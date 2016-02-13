@@ -2,13 +2,7 @@ describe('toDo Services and Function', function() {
 	var $httpBackend, toDoFuntions = {}, $q, $http, toDoItem, toDoList;
 	var newItem1, newItem2, newItem3;
 	var todoList = [];
-	var todoOne = {
-		title:'sample 1',
-		description:'this is a sample todo',
-		numPomo:3
-	};
-
-	todoList.push(todoOne);
+	
 
 	beforeEach(module('pomoWebApp'));
 
@@ -36,6 +30,7 @@ describe('toDo Services and Function', function() {
 
 
 	describe('Should check for functions existance', function() {
+
 		it('Service should have add functionality', function() {
 			expect(toDoFuntions.add).toBeDefined();
 		});
@@ -56,28 +51,30 @@ describe('toDo Services and Function', function() {
 	
 
 	describe('Checks for function functionality.', function() {
-		
-		it('Should retrieve the number of toDo Items in database', function(){
 
-			$httpBackend.when('GET', '/db/retrieveList')
+		describe('Retrieve function test', function() {
+
+			it('Should retrieve the number of toDo Items in database', function(){
+
+				$httpBackend.when('GET', '/db/retrieveList')
 				.respond(200, todoList);
 
-			toDoFuntions.retrieve()
+				toDoFuntions.retrieve()
 				.then(function(data){
 					response = data;
 				})
 
-			$httpBackend.flush(1);
-			expect(response.data).toEqual(todoList);
+				$httpBackend.flush(1);
+				expect(response.data).toEqual(todoList);
 
-		});
+			});
 
-		it('Retrive function should handle errors acordingly', function() {
+			it('Retrive function should handle errors acordingly', function() {
 
-			$httpBackend.when('GET', '/db/retrieveList')
+				$httpBackend.when('GET', '/db/retrieveList')
 				.respond(500);
 
-			toDoFuntions.retrieve()
+				toDoFuntions.retrieve()
 				.then(function(data){
 					response = data;
 				})
@@ -85,38 +82,59 @@ describe('toDo Services and Function', function() {
 					response = 'Error!';
 				})
 
-			$httpBackend.flush(1);
-			expect(response).toEqual('Error!');
+				$httpBackend.flush(1);
+				expect(response).toEqual('Error!');
 
+			});
 		});
 
-		it('Add function should sent POST request to database', function() {
+		describe('Add function test', function() {
+			
+			it('Add function should sent POST request to database', function() {
 
-			$httpBackend.expectPOST('/db/addTodo', newItem1)
+				$httpBackend.expectPOST('/db/addTodo', newItem1)
 				.respond(201);
 
-			$httpBackend.whenGET('/db/retrieveList')
-				.respond(200, toDoList);
+
+				toDoFuntions.add(newItem1)
+				.then(function(){
+					response = 'OK';
+				})
+
+				$httpBackend.flush(1);
+				expect(response).toEqual('OK');
+
+			});
+
+			it('Add function should handle errors', function() {
+				$httpBackend.expectPOST('/db/addTodo', newItem1)
+				.respond(500);
 
 
-			toDoFuntions.add(newItem1)
+				toDoFuntions.add(newItem1)
 				.then(function(){
 					response = 'OK';
 				}, function(){
-					response = 'Error!'
-				});
+					response = 'Error!';
+				})
 
-			$httpBackend.flush(1);
-			$httpBackend.flush(1);
-			expect(response).toEqual('OK');
+				$httpBackend.flush(1);
+				expect(response).toEqual('Error!');
+			});
 
 		});
 
-		it('Add function should increment the number of 2dos by 1', function(){
+		describe('Delete function test', function() {
 			
 		});
 
+
 	});
+
+
+
+
+
 
 
 });
