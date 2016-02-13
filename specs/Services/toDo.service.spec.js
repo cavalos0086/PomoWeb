@@ -28,6 +28,8 @@ describe('toDo Services and Function', function() {
 			$http.get('/db/retrieveList')
 				.then(function(data){
 					deferred.resolve(data);
+				}, function(data){
+					deferred.reject();
 				});
 
 			return deferred.promise;
@@ -66,7 +68,29 @@ describe('toDo Services and Function', function() {
 
 	});
 
+	it('retrive function should handle errors acordingly', function() {
+		var response;
 
-	
+		$httpBackend.when('GET', '/db/retrieveList')
+			.respond(500);
+
+		toDoFactory.retrieve()
+			.then(function(data){
+				response = data;
+			})
+			.catch(function(){
+				response = 'Error!';
+			})
+
+		$httpBackend.flush();
+		expect(response).toEqual('Error!');
+
+	});
+
 
 });
+
+
+
+
+
