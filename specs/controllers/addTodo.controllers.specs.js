@@ -16,12 +16,10 @@ describe('AddTodo Controller', function() {
 			$scope.numTodos = 0;
 
 			$scope.addTodo = function(){
-				if(!$scope.data.title === '' && $scope.data.numPomo > 0 && $scope.data.numPomo <= 10){
+				if( ($scope.data.title !== '') && ($scope.data.numPomo > 0) && ($scope.data.numPomo <= 10)){
 					$scope.numTodos++;
 				}
-			}
-
-
+			};
 
 		}, {$scope:$scope})
 	}));
@@ -33,15 +31,18 @@ describe('AddTodo Controller', function() {
 	});
 
 	it('number of pomodoros can not be zero', function() {
+		$scope.data.numPomo = 0;
+		$scope.addTodo();
+		expect($scope.numTodos).toBe(0);
 	});
 
 	it('should add todo if title is not empty, and number of pomodoros >= 1 and <= 10', function(){
-
+		$scope.data.title = 'Sample Title';
+		$scope.data.numPomo = 5;
+		$scope.addTodo();
+		expect($scope.numTodos).toBe(1);
 	});
 
-	
-	it('number of pomodoros should be between 1 and 10', function() {
-		
-	});
+
 
 });
