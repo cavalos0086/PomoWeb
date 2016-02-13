@@ -39,3 +39,19 @@ query1.on('end', function(){
 });
 
 
+// Routing:
+app.post('/db/addtodo', function(req, res){
+	var data = req.body;
+});
+
+app.post('/db/editTodo', function(req, res){
+
+});
+
+app.post('/db/deleteTodo', function(req, res){
+
+});
+
+app.get('/db/retrieveList', function(req, res){
+
+});
