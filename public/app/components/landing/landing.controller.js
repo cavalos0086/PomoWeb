@@ -6,6 +6,8 @@ angular.module('pomoWebApp')
 				}, 5000);
 		};
 
+		$scope.goHome();
+
 		
 		
 	});
