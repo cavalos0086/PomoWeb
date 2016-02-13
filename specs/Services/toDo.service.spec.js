@@ -11,29 +11,15 @@ describe('toDo Services and Function', function() {
 	todoList.push(todoOne);
 
 	beforeEach(module('pomoWebApp'));
+
 	beforeEach(inject(function(_toDoFactory_, _$httpBackend_, _$q_, _$http_){
 		$httpBackend = _$httpBackend_;
 		toDoFactory = _toDoFactory_;
 		$q = _$q_;
 		$http = _$http_;
 
-		toDoFactory.add = function(){};
-		toDoFactory.edit = function(){};
-		toDoFactory.delete = function(){};
+		var response;
 
-
-		toDoFactory.retrieve = function(){
-			var deferred = $q.defer();
-
-			$http.get('/db/retrieveList')
-				.then(function(data){
-					deferred.resolve(data);
-				}, function(data){
-					deferred.reject();
-				});
-
-			return deferred.promise;
-		};
 	}));
 
 	it('Service should have add functionality', function() {
@@ -53,7 +39,6 @@ describe('toDo Services and Function', function() {
 	});
 
 	it('should retrieve the number of toDo Items in database', function(){
-		var response;
 
 		$httpBackend.when('GET', '/db/retrieveList')
 			.respond(200, todoList);
@@ -63,13 +48,12 @@ describe('toDo Services and Function', function() {
 				response = data;
 			})
 
-		$httpBackend.flush();
+		$httpBackend.flush(1);
 		expect(response.data).toEqual(todoList);
 
 	});
 
 	it('retrive function should handle errors acordingly', function() {
-		var response;
 
 		$httpBackend.when('GET', '/db/retrieveList')
 			.respond(500);
@@ -82,7 +66,7 @@ describe('toDo Services and Function', function() {
 				response = 'Error!';
 			})
 
-		$httpBackend.flush();
+		$httpBackend.flush(1);
 		expect(response).toEqual('Error!');
 
 	});

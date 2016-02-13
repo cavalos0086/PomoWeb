@@ -7,8 +7,17 @@ angular.module('pomoWebApp')
 		toDoFunctions.delete = function(){};
 
 		
-		toDoFunctions.retrive = function(){
-			
+		toDoFunctions.retrieve = function(){
+			var deferred = $q.defer();
+
+			$http.get('/db/retrieveList')
+				.then(function(data){
+					deferred.resolve(data);
+				}, function(data){
+					deferred.reject();
+				});
+
+			return deferred.promise;
 		};
 
 
