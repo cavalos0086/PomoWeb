@@ -22,6 +22,11 @@ describe('toDo Services and Function', function() {
 
 	}));
 
+	afterEach(function(){
+		$httpBackend.verifyNoOutstandingRequest();
+		$httpBackend.verifyNoOutstandingExpectation();
+	});
+
 	it('Service should have add functionality', function() {
 		expect(toDoFactory.add).toBeDefined();
 	});
