@@ -33,7 +33,7 @@ angular.module('pomoWebApp',[
 			url:'/todoList',
 			views:{
 				todoApp:{
-					templateUrl:'app/components/todoList/todoList.controller.js'
+					templateUrl:'app/components/todoList/todoList.html'
 				}
 			}
 		})

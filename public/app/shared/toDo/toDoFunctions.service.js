@@ -51,7 +51,6 @@ angular.module('pomoWebApp')
 				}, function(){
 					deferred.reject();
 				});
-
 			return deferred.promise;
 		};
 
