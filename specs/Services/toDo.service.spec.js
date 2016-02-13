@@ -1,15 +1,37 @@
 describe('toDo Services and Function', function() {
-	var $httpBackend, toDoFactory = {};
+	var $httpBackend, toDoFactory = {}, $q, $http;
+
+	var todoList = [];
+	var todoOne = {
+		title:'sample 1',
+		description:'this is a sample todo',
+		numPomo:3
+	};
+
+	todoList.push(todoOne);
 
 	beforeEach(module('pomoWebApp'));
-	beforeEach(inject(function(_toDoFactory_, _$httpBackend_){
+	beforeEach(inject(function(_toDoFactory_, _$httpBackend_, _$q_, _$http_){
 		$httpBackend = _$httpBackend_;
 		toDoFactory = _toDoFactory_;
+		$q = _$q_;
+		$http = _$http_;
 
 		toDoFactory.add = function(){};
 		toDoFactory.edit = function(){};
 		toDoFactory.delete = function(){};
-		toDoFactory.retrieve = function(){};
+
+
+		toDoFactory.retrieve = function(){
+			var deferred = $q.defer();
+
+			$http.get('/db/retrieveList')
+				.then(function(data){
+					deferred.resolve(data);
+				});
+
+			return deferred.promise;
+		};
 	}));
 
 	it('Service should have add functionality', function() {
@@ -27,6 +49,23 @@ describe('toDo Services and Function', function() {
 	it('Service should have retrieve functionality', function() {
 		expect(toDoFactory.retrieve).toBeDefined();
 	});
+
+	it('should retrieve the number of toDo Items in database', function(){
+		var response;
+
+		$httpBackend.when('GET', '/db/retrieveList')
+			.respond(200, todoList);
+
+		toDoFactory.retrieve()
+			.then(function(data){
+				response = data;
+			})
+
+		$httpBackend.flush();
+		expect(response.data).toEqual(todoList);
+
+	});
+
 
 	
 
