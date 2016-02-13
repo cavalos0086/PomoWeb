@@ -1,6 +1,6 @@
 describe('toDo Services and Function', function() {
-	var $httpBackend, toDoFuntions = {}, $q, $http, toDoItem;
-
+	var $httpBackend, toDoFuntions = {}, $q, $http, toDoItem, toDoList;
+	var newItem1, newItem2, newItem3;
 	var todoList = [];
 	var todoOne = {
 		title:'sample 1',
@@ -19,12 +19,11 @@ describe('toDo Services and Function', function() {
 		$http = _$http_;
 		toDoItem = _toDoItem_;
 
-		// var newItem = new toDoItem({
-		// 	title:'sample todo 1',
-		// 	description:'this is a sample todo',
-		// 	numPomodoros:1
-		// });
+		newItem1 = toDoItem('sample 1');
+		newItem2 = toDoItem('sample 2','this contains a description');
+		newItem3 = toDoItem('sample 3', 'this contains number of pomodoros and desc', 4);
 
+		toDoList = [newItem1, newItem2, newItem3];
 
 		var response;
 
@@ -56,9 +55,9 @@ describe('toDo Services and Function', function() {
 	});
 	
 
-	describe('Checks for function functionality', function() {
+	describe('Checks for function functionality.', function() {
 		
-		it('should retrieve the number of toDo Items in database', function(){
+		it('Should retrieve the number of toDo Items in database', function(){
 
 			$httpBackend.when('GET', '/db/retrieveList')
 				.respond(200, todoList);
@@ -73,7 +72,7 @@ describe('toDo Services and Function', function() {
 
 		});
 
-		it('retrive function should handle errors acordingly', function() {
+		it('Retrive function should handle errors acordingly', function() {
 
 			$httpBackend.when('GET', '/db/retrieveList')
 				.respond(500);
@@ -91,13 +90,42 @@ describe('toDo Services and Function', function() {
 
 		});
 
-		it('add function should add 2do to the database', function() {
+		it('Add function should sent POST request to database', function() {
+
+			$httpBackend.expectPOST('/db/addTodo', newItem1)
+				.respond(201);
+
+			$httpBackend.whenGET('/db/retrieveList')
+				.respond(200, toDoList);
+
+
+			toDoFuntions.add(newItem1)
+				.then(function(){
+					response = 'OK';
+				}, function(){
+					response = 'Error!'
+				});
+
+			$httpBackend.flush(1);
+			$httpBackend.flush(1);
+			expect(response).toEqual('OK');
 
 		});
+
+		it('Add function should increment the number of 2dos by 1', function(){
+			
+		});
+
 	});
 
 
 });
+
+
+
+
+
+
 
 
 
