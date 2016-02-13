@@ -1,5 +1,5 @@
 angular.module('pomoWebApp')
-	.service('toDoFactory', ['$http', '$q', function($http, $q){
+	.service('toDoFuntions', ['$http', '$q', 'toDoItem',function($http, $q, toDoItem){
 
 		this.add = function(){};
 		this.edit = function(){};

@@ -1,9 +1,10 @@
 angular.module('pomoWebApp')
 	.factory('toDoItem', function(){
-		var toDoItem = {};
-		toDoItem.title='';
-		toDoItem.description='';
-		toDoItem.numPomodoros = 0;
+		return function(title, description, numPomodoros){
 
-		return toDoItem;
+
+			this.title = title;
+			this.description = description || '';
+			this.numPomodoros = numPomodoros || 1;
+		}
 	});

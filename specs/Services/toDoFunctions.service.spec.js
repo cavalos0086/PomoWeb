@@ -1,5 +1,5 @@
 describe('toDo Services and Function', function() {
-	var $httpBackend, toDoFactory = {}, $q, $http;
+	var $httpBackend, toDoFuntions = {}, $q, $http, toDoItem;
 
 	var todoList = [];
 	var todoOne = {
@@ -12,11 +12,19 @@ describe('toDo Services and Function', function() {
 
 	beforeEach(module('pomoWebApp'));
 
-	beforeEach(inject(function(_toDoFactory_, _$httpBackend_, _$q_, _$http_){
+	beforeEach(inject(function(_toDoFuntions_, _toDoItem_, _$httpBackend_, _$q_, _$http_){
 		$httpBackend = _$httpBackend_;
-		toDoFactory = _toDoFactory_;
+		toDoFuntions = _toDoFuntions_;
 		$q = _$q_;
 		$http = _$http_;
+		toDoItem = _toDoItem_;
+
+		// var newItem = new toDoItem({
+		// 	title:'sample todo 1',
+		// 	description:'this is a sample todo',
+		// 	numPomodoros:1
+		// });
+
 
 		var response;
 
@@ -30,19 +38,19 @@ describe('toDo Services and Function', function() {
 
 	describe('Should check for functions existance', function() {
 		it('Service should have add functionality', function() {
-			expect(toDoFactory.add).toBeDefined();
+			expect(toDoFuntions.add).toBeDefined();
 		});
 
 		it('Service should have edit functionality', function() {
-			expect(toDoFactory.edit).toBeDefined();
+			expect(toDoFuntions.edit).toBeDefined();
 		});
 
 		it('Service should have delete functionality', function() {
-			expect(toDoFactory.delete).toBeDefined();
+			expect(toDoFuntions.delete).toBeDefined();
 		});
 
 		it('Service should have retrieve functionality', function() {
-			expect(toDoFactory.retrieve).toBeDefined();
+			expect(toDoFuntions.retrieve).toBeDefined();
 		});
 
 	});
@@ -55,7 +63,7 @@ describe('toDo Services and Function', function() {
 			$httpBackend.when('GET', '/db/retrieveList')
 				.respond(200, todoList);
 
-			toDoFactory.retrieve()
+			toDoFuntions.retrieve()
 				.then(function(data){
 					response = data;
 				})
@@ -70,7 +78,7 @@ describe('toDo Services and Function', function() {
 			$httpBackend.when('GET', '/db/retrieveList')
 				.respond(500);
 
-			toDoFactory.retrieve()
+			toDoFuntions.retrieve()
 				.then(function(data){
 					response = data;
 				})
