@@ -27,53 +27,65 @@ describe('toDo Services and Function', function() {
 		$httpBackend.verifyNoOutstandingExpectation();
 	});
 
-	it('Service should have add functionality', function() {
-		expect(toDoFactory.add).toBeDefined();
-	});
 
-	it('Service should have edit functionality', function() {
-		expect(toDoFactory.edit).toBeDefined();
-	});
+	describe('Should check for functions existance', function() {
+		it('Service should have add functionality', function() {
+			expect(toDoFactory.add).toBeDefined();
+		});
 
-	it('Service should have delete functionality', function() {
-		expect(toDoFactory.delete).toBeDefined();
-	});
+		it('Service should have edit functionality', function() {
+			expect(toDoFactory.edit).toBeDefined();
+		});
 
-	it('Service should have retrieve functionality', function() {
-		expect(toDoFactory.retrieve).toBeDefined();
-	});
+		it('Service should have delete functionality', function() {
+			expect(toDoFactory.delete).toBeDefined();
+		});
 
-	it('should retrieve the number of toDo Items in database', function(){
-
-		$httpBackend.when('GET', '/db/retrieveList')
-			.respond(200, todoList);
-
-		toDoFactory.retrieve()
-			.then(function(data){
-				response = data;
-			})
-
-		$httpBackend.flush(1);
-		expect(response.data).toEqual(todoList);
+		it('Service should have retrieve functionality', function() {
+			expect(toDoFactory.retrieve).toBeDefined();
+		});
 
 	});
+	
 
-	it('retrive function should handle errors acordingly', function() {
+	describe('Checks for function functionality', function() {
+		
+		it('should retrieve the number of toDo Items in database', function(){
 
-		$httpBackend.when('GET', '/db/retrieveList')
-			.respond(500);
+			$httpBackend.when('GET', '/db/retrieveList')
+				.respond(200, todoList);
 
-		toDoFactory.retrieve()
-			.then(function(data){
-				response = data;
-			})
-			.catch(function(){
-				response = 'Error!';
-			})
+			toDoFactory.retrieve()
+				.then(function(data){
+					response = data;
+				})
 
-		$httpBackend.flush(1);
-		expect(response).toEqual('Error!');
+			$httpBackend.flush(1);
+			expect(response.data).toEqual(todoList);
 
+		});
+
+		it('retrive function should handle errors acordingly', function() {
+
+			$httpBackend.when('GET', '/db/retrieveList')
+				.respond(500);
+
+			toDoFactory.retrieve()
+				.then(function(data){
+					response = data;
+				})
+				.catch(function(){
+					response = 'Error!';
+				})
+
+			$httpBackend.flush(1);
+			expect(response).toEqual('Error!');
+
+		});
+
+		it('add function should add 2do to the database', function() {
+
+		});
 	});
 
 

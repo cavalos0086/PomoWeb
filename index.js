@@ -40,7 +40,7 @@ query1.on('end', function(){
 
 
 // Routing:
-app.post('/db/addtodo', function(req, res){
+app.post('/db/addTodo', function(req, res){
 	var data = req.body;
 });
 
