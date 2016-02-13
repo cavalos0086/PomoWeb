@@ -55,6 +55,12 @@
     background-color: #428bca;
     color: white; }
 
+#list {
+  margin-top: 20px; }
+  #list > div > p {
+    font-size: 30px;
+    color: #263647; }
+
 * {
   font-family: "Roboto"; }
 
