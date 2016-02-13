@@ -29,7 +29,18 @@ angular.module('pomoWebApp')
 			return deferred.promise;
 		};
 
-		this.delete = function(toDoId){};
+
+		this.delete = function(toDoId){
+			
+			$http.post('/db/deleteTodo', toDoId)
+				.then(function(){
+					deferred.resolve();
+				}, function(){
+					deferred.reject();
+				});
+
+			return deferred.promise;
+		};
 
 
 		this.edit = function(){};

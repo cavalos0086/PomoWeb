@@ -96,17 +96,15 @@ describe('toDo Services and Function', function() {
 				.respond(201);
 
 
-				toDoFuntions.add(newItem1)
-				.then(function(){
-					response = 'OK';
-				})
+				toDoFuntions.add(newItem1);
 
-				$httpBackend.flush(1);
-				expect(response).toEqual('OK');
+				
+				expect($httpBackend.flush).not.toThrow();
 
 			});
 
 			it('Add function should handle errors', function() {
+
 				$httpBackend.expectPOST('/db/addTodo', newItem1)
 				.respond(500);
 
@@ -116,7 +114,7 @@ describe('toDo Services and Function', function() {
 					response = 'OK';
 				}, function(){
 					response = 'Error!';
-				})
+				});
 
 				$httpBackend.flush(1);
 				expect(response).toEqual('Error!');
@@ -126,6 +124,43 @@ describe('toDo Services and Function', function() {
 
 		describe('Delete function test', function() {
 			
+			it('Delete function should sent a POST request to database', function() {
+				var toDoId = 10;
+
+				$httpBackend.expectPOST('/db/deleteTodo', toDoId)
+				.respond(200);
+
+				toDoFuntions.delete(toDoId).
+					then(function(){
+						response = 'OK';
+					}, function(){
+						response = 'Error!';
+					})
+
+				expect($httpBackend.flush).not.toThrow();
+				
+
+			});
+
+			it('Delete function should handle errros', function() {
+
+				var toDoId = 10;
+
+				$httpBackend.expectPOST('/db/deleteTodo', toDoId)
+				.respond(500);
+
+				toDoFuntions.delete(toDoId)
+					.then(function(){
+						response = 'OK';
+					}, function(){
+						response = 'Error!';
+					});
+
+				$httpBackend.flush(1);
+				expect(response).toBe('Error!');
+
+			});
+
 		});
 
 
