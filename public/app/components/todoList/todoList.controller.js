@@ -18,4 +18,14 @@ angular.module('pomoWebApp')
 
 		$scope.populateToDos();
 
+		$scope.displayOptions = function(id){
+			var toDoClass = 'column-' + id;
+			$('.'+toDoClass).children('td#options').removeClass('hidden');
+		}
+
+		$scope.hideOptions =function(id){
+			var toDoClass = 'column-' + id;
+			$('.'+toDoClass).children('td#options').addClass('hidden');
+		}
+
 	}]);

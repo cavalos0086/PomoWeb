@@ -1,6 +1,6 @@
 <div class="row" id="list" ng-controller="todoListController">
 	<div class="col-xs-12">
-		<p>List of toDo's ... </p>
+		<p class="tableRow">List of toDo's ... </p>
 	</div>
 
 	<div class="col-sm-2 hidden-xs"></div>
@@ -16,7 +16,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="toDo in toDoList" ng-class="toDo.id" >
+				<tr ng-repeat="toDo in toDoList" class="column-{{toDo.id}}" ng-mouseover="displayOptions(toDo.id)" ng-mouseleave="hideOptions(toDo.id)">
 					<th scope="row">{{toDo.id}}</th>
 					<td>{{toDo.title}}</td>
 					<td>{{toDo.description}}</td>
