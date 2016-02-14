@@ -55,6 +55,25 @@
     background-color: #428bca;
     color: white; }
 
+.my_info {
+  color: #00529B;
+  background-color: #BDE5F8; }
+
+.my_success {
+  color: #4F8A10;
+  background-color: #DFF2BF; }
+
+.my_warning {
+  color: #9F6000;
+  background-color: #FEEFB3; }
+
+.my_error {
+  color: #D8000C;
+  background-color: #FFBABA; }
+
+.my_info i, .my_success i, .my_warning i, .my_error i {
+  font-size: 2em; }
+
 #list {
   margin-top: 20px; }
   #list > div.col-xs-12 > p {

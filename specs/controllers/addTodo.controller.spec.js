@@ -19,26 +19,6 @@ describe('addTodo Controller behavior', function() {
 		$httpBackend.verifyNoOutstandingRequest();
 	})
 
-	describe('existance of $scope variables needed', function() {
-		it('should have a title variable', function() {
-			expect($scope.title).toBeDefined();
-		});
-		it('should have a description variable', function() {
-			expect($scope.description).toBeDefined();
-		});
-
-		it('should have a numPomodoros variable', function() {
-			expect($scope.numPomodoros).toBeDefined();
-		});
-
-		it('should have an add function', function() {
-			expect($scope.addItem).toBeDefined();
-		});
-
-		it('should have a message indicating success or failure of addTodo call', function() {
-			expect($scope.message).toBeDefined();
-		});
-	});
 
 	describe('AddTodo construction and functionality ', function() {
 
