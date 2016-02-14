@@ -8,6 +8,4 @@ angular.module('pomoWebApp')
 
 		$scope.goHome();
 
-		
-		
 	});
