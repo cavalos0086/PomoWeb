@@ -16,11 +16,15 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="toDo in toDoList" >
+				<tr ng-repeat="toDo in toDoList" ng-class="toDo.id" >
 					<th scope="row">{{toDo.id}}</th>
 					<td>{{toDo.title}}</td>
 					<td>{{toDo.description}}</td>
 					<td>{{toDo.numpomodoros}}</td>
+					<td id="options" class="hidden">
+						<a><i class="fa fa-trash-o"></i></a>
+						<a><i class="fa fa-pencil"></i></a>
+					</td>
 				</tr>
 			</tbody>
 		</table>
