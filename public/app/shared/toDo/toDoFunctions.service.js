@@ -15,12 +15,12 @@ angular.module('pomoWebApp')
 			return deferred.promise;
 		};
 
-		this.add = function(toDo){
 
+		this.add = function(toDo){
 			$http.post('/db/addTodo', toDo)
-				.then(function(){
-					deferred.resolve();
-				}, function(data){
+				.then(function(data){
+					deferred.resolve(data);
+				}, function(){
 					deferred.reject();
 				});
 

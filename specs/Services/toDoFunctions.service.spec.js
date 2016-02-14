@@ -96,7 +96,10 @@ describe('toDo Services and Function', function() {
 				.respond(201);
 
 
-				toDoFunctions.add(newItem1);
+				toDoFunctions.add(newItem1)
+				.then(function(data){
+					
+				}, function(){});
 
 				
 				expect($httpBackend.flush).not.toThrow();
