@@ -53,5 +53,29 @@ app.post('/db/deleteTodo', function(req, res){
 });
 
 app.get('/db/retrieveList', function(req, res){
-	
+	var results = [];
+
+	pg.connect(connectionString, function(err, client, done){
+		if(err){
+			return res.status(500).json({success:false, data:err});
+		}
+
+		var query = client.query("SELECT * FROM toDoItems");
+
+		query.on('row', function(row){
+			results.push(row);
+		});
+
+		query.on('end', function(){
+			done();
+			return res.json(results);
+		})
+
+	})
 });
+
+
+
+
+
+
