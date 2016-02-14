@@ -1,7 +1,20 @@
 #list{
 	margin-top:20px;
-	& > div > p{
+	& > div.col-xs-12 > p{
 		font-size:30px;
 		color:$black;
+	}
+
+	& > div#dataColumn{
+		margin-top:20px;
+		
+	}
+
+	table > thead > tr > th{
+		font-size:20px;
+	}
+
+	table > tbody > tr > td{
+		font-size:16px;
 	}
 }
