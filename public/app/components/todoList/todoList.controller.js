@@ -4,9 +4,10 @@ angular.module('pomoWebApp')
 		$scope.empty = true;
 
 		$scope.populateToDos = function(){
+			
 			toDoFunctions.retrieve()
 				.then(function(data){
-					// console.log('data', data);
+					console.log('data', data);
 					$scope.toDoList = data.data;
 					// console.log('todoList', $scope.toDoList);
 					if($scope.toDoList.length > 0){

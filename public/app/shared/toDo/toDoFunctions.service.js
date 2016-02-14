@@ -1,13 +1,15 @@
 angular.module('pomoWebApp')
 	.service('toDoFunctions', ['$http', '$q', 'toDoItem',function($http, $q, toDoItem){
 
-		var deferred = $q.defer();
+		
 		
 		this.retrieve = function(){
-
+			var deferred = $q.defer();
 			$http.get('/db/retrieveList')
 				.then(function(data){
 					deferred.resolve(data);
+					console.log('func',data);
+
 				}, function(data){
 					deferred.reject();
 				});
@@ -17,6 +19,7 @@ angular.module('pomoWebApp')
 
 
 		this.add = function(toDo){
+			var deferred = $q.defer();
 			$http.post('/db/addTodo', toDo)
 				.then(function(data){
 					deferred.resolve(data);
@@ -29,7 +32,7 @@ angular.module('pomoWebApp')
 
 
 		this.delete = function(toDoId){
-
+			var deferred = $q.defer();
 			$http.post('/db/deleteTodo', toDoId)
 				.then(function(){
 					deferred.resolve();
@@ -42,7 +45,7 @@ angular.module('pomoWebApp')
 
 
 		this.edit = function(newTodo){
-
+			var deferred = $q.defer();
 			$http.put('/db/editTodo', newTodo)
 				.then(function(){
 					deferred.resolve();
