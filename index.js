@@ -42,7 +42,22 @@ query1.on('end', function(){
 // Routing:
 app.post('/db/addTodo', function(req, res){
 	var data = req.body;
+
+	pg.connect(connectionString, function(err, client, done){
+		if(err)
+			return res.status(500).json({success:false, data:err});
+
+		var query = client.query("INSERT INTO toDoItems (title, description, numPomodoros) values($1,$2,$3)",[data.title, data.description, data.numPomodoros]);
+
+		query.on('end', function(){
+			done();
+			return res.status(200).json({success:true});
+		});
+	})
 });
+
+
+
 
 app.put('/db/editTodo', function(req, res){
 
