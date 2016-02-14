@@ -19,7 +19,6 @@ describe('toDoList Controller', function() {
 		$httpBackend.expectGET('/db/retrieveList')
 			.respond(200, toDoList);
 
-		$scope.populateToDos();
 		$httpBackend.flush();
 		expect($scope.empty).toEqual(false);
 
@@ -31,7 +30,6 @@ describe('toDoList Controller', function() {
 		$httpBackend.expectGET('/db/retrieveList')
 		.respond(200, toDoList);
 
-		$scope.populateToDos();
 		$httpBackend.flush();
 		expect($scope.empty).toEqual(true);
 
