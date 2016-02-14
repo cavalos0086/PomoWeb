@@ -32,6 +32,7 @@ angular.module('pomoWebApp')
 
 
 		this.delete = function(toDoId){
+			
 			var deferred = $q.defer();
 			$http.post('/db/deleteTodo', toDoId)
 				.then(function(){

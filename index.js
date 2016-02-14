@@ -64,7 +64,20 @@ app.put('/db/editTodo', function(req, res){
 });
 
 app.post('/db/deleteTodo', function(req, res){
+	var id = req.body.id;
+	
+	pg.connect(connectionString, function(err, client, done){
+		if(err){
+			return res.status(500).json({success:false, data:err});
+		}
 
+		var query = client.query("DELETE FROM toDoItems WHERE id=$1",[id]);
+		query.on('end', function(){
+			done();
+		})
+
+		return res.json();
+	})
 });
 
 app.get('/db/retrieveList', function(req, res){

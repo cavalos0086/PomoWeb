@@ -21,8 +21,8 @@
 					<td>{{toDo.title}}</td>
 					<td>{{toDo.description}}</td>
 					<td>{{toDo.numpomodoros}}</td>
-					<td id="options" class="hidden">
-						<a ng-click="delete(toDo.id)"><i class="fa fa-trash-o"></i></a>
+					<td id="options">
+						<i ng-click="deleteToDo(toDo.id)" class="fa fa-trash-o"></i>
 						<a><i class="fa fa-pencil"></i></a>
 					</td>
 				</tr>

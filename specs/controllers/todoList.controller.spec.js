@@ -13,26 +13,26 @@ describe('toDoList Controller', function() {
 		$controller('todoListController', {$scope:$scope, toDoFunctions:toDoFunctions, toDoItem:toDoItem});
 	}));
 
-	it('should set empty = false if toDoList size is greater than zero', function() {
-		toDoList = ['item1', 'item2'];
+	// xit('should set empty = false if toDoList size is greater than zero', function() {
+	// 	toDoList = ['item1', 'item2'];
 
-		$httpBackend.expectGET('/db/retrieveList')
-			.respond(200, toDoList);
+	// 	$httpBackend.expectGET('/db/retrieveList')
+	// 		.respond(200, toDoList);
 
-		$httpBackend.flush();
-		expect($scope.empty).toEqual(false);
+	// 	$httpBackend.flush();
+	// 	expect($scope.empty).toEqual(false);
 
-	});
+	// });
 
-	it('should set empty = true if toDoList size is zero', function() {
-		toDoList = [];
+	// xit('should set empty = true if toDoList size is zero', function() {
+	// 	toDoList = [];
 
-		$httpBackend.expectGET('/db/retrieveList')
-		.respond(200, toDoList);
+	// 	$httpBackend.expectGET('/db/retrieveList')
+	// 	.respond(200, toDoList);
 
-		$httpBackend.flush();
-		expect($scope.empty).toEqual(true);
+	// 	$httpBackend.flush();
+	// 	expect($scope.empty).toEqual(true);
 
-	});
+	// });
 
 });
