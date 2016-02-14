@@ -28,4 +28,8 @@ angular.module('pomoWebApp')
 			$('.'+toDoClass).children('td#options').addClass('hidden');
 		}
 
+		$scope.delete(id){
+			
+		}
+
 	}]);
