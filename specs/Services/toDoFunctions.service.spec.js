@@ -1,14 +1,14 @@
 describe('toDo Services and Function', function() {
-	var $httpBackend, toDoFuntions = {}, $q, $http, toDoItem, toDoList;
+	var $httpBackend, toDoFunctions = {}, $q, $http, toDoItem, toDoList;
 	var newItem1, newItem2, newItem3;
 	var todoList = [];
 	
 
 	beforeEach(module('pomoWebApp'));
 
-	beforeEach(inject(function(_toDoFuntions_, _toDoItem_, _$httpBackend_, _$q_, _$http_){
+	beforeEach(inject(function(_toDoFunctions_, _toDoItem_, _$httpBackend_, _$q_, _$http_){
 		$httpBackend = _$httpBackend_;
-		toDoFuntions = _toDoFuntions_;
+		toDoFunctions = _toDoFunctions_;
 		$q = _$q_;
 		$http = _$http_;
 		toDoItem = _toDoItem_;
@@ -32,19 +32,19 @@ describe('toDo Services and Function', function() {
 	describe('Should check for functions existance', function() {
 
 		it('Service should have add functionality', function() {
-			expect(toDoFuntions.add).toBeDefined();
+			expect(toDoFunctions.add).toBeDefined();
 		});
 
 		it('Service should have edit functionality', function() {
-			expect(toDoFuntions.edit).toBeDefined();
+			expect(toDoFunctions.edit).toBeDefined();
 		});
 
 		it('Service should have delete functionality', function() {
-			expect(toDoFuntions.delete).toBeDefined();
+			expect(toDoFunctions.delete).toBeDefined();
 		});
 
 		it('Service should have retrieve functionality', function() {
-			expect(toDoFuntions.retrieve).toBeDefined();
+			expect(toDoFunctions.retrieve).toBeDefined();
 		});
 
 	});
@@ -59,7 +59,7 @@ describe('toDo Services and Function', function() {
 				$httpBackend.when('GET', '/db/retrieveList')
 				.respond(200, todoList);
 
-				toDoFuntions.retrieve()
+				toDoFunctions.retrieve()
 				.then(function(data){
 					response = data;
 				})
@@ -74,7 +74,7 @@ describe('toDo Services and Function', function() {
 				$httpBackend.when('GET', '/db/retrieveList')
 				.respond(500);
 
-				toDoFuntions.retrieve()
+				toDoFunctions.retrieve()
 				.then(function(data){
 					response = data;
 				})
@@ -96,7 +96,7 @@ describe('toDo Services and Function', function() {
 				.respond(201);
 
 
-				toDoFuntions.add(newItem1);
+				toDoFunctions.add(newItem1);
 
 				
 				expect($httpBackend.flush).not.toThrow();
@@ -109,7 +109,7 @@ describe('toDo Services and Function', function() {
 				.respond(500);
 
 
-				toDoFuntions.add(newItem1)
+				toDoFunctions.add(newItem1)
 				.then(function(){
 					response = 'OK';
 				}, function(){
@@ -130,7 +130,7 @@ describe('toDo Services and Function', function() {
 				$httpBackend.expectPOST('/db/deleteTodo', toDoId)
 				.respond(200);
 
-				toDoFuntions.delete(toDoId).
+				toDoFunctions.delete(toDoId).
 				then(function(){
 					response = 'OK';
 				}, function(){
@@ -149,7 +149,7 @@ describe('toDo Services and Function', function() {
 				$httpBackend.expectPOST('/db/deleteTodo', toDoId)
 				.respond(500);
 
-				toDoFuntions.delete(toDoId)
+				toDoFunctions.delete(toDoId)
 				.then(function(){
 					response = 'OK';
 				}, function(){
@@ -172,7 +172,7 @@ describe('toDo Services and Function', function() {
 				$httpBackend.expectPUT('/db/editTodo', newItem2)
 				.respond(200);
 
-				toDoFuntions.edit(newItem2)
+				toDoFunctions.edit(newItem2)
 					.then(function(){
 						item = newItem2;
 						response = 'OK';
@@ -192,7 +192,7 @@ describe('toDo Services and Function', function() {
 				$httpBackend.expectPUT('/db/editTodo', newItem2)
 				.respond(500);
 
-				toDoFuntions.edit(newItem2)
+				toDoFunctions.edit(newItem2)
 					.then(function(){
 						item = newItem2;
 						response = 'OK';

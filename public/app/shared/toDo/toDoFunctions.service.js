@@ -1,5 +1,5 @@
 angular.module('pomoWebApp')
-	.service('toDoFuntions', ['$http', '$q', 'toDoItem',function($http, $q, toDoItem){
+	.service('toDoFunctions', ['$http', '$q', 'toDoItem',function($http, $q, toDoItem){
 
 		var deferred = $q.defer();
 

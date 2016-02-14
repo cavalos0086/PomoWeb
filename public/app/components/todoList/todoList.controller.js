@@ -1,5 +1,5 @@
 angular.module('pomoWebApp')
-	.controller('todoListController', ['$scope', 'toDoFuntions','toDoItem',function($scope, toDoFuntions,toDoItem){
+	.controller('todoListController', ['$scope', 'toDoFunctions','toDoItem',function($scope, toDoFunctions,toDoItem){
 		$scope.toDoList = [];
 		$scope.empty = false;
 
@@ -10,6 +10,4 @@ angular.module('pomoWebApp')
 				$scope.empty = true;
 			}
 		});
-
-		
 	}]);

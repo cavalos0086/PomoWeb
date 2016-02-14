@@ -1,23 +1,18 @@
 describe('toDoList Controller', function() {
-	var $controller, $rootScope, toDoList;
+	var $controller, $rootScope, $scope, toDoFunctions, toDoItem;
 
 	beforeEach(module('pomoWebApp'));
-	beforeEach(inject(function(_$controller_,_$rootScope_){
+	beforeEach(inject(function(_$controller_, _toDoFunctions_){
+		$scope = {};
 		$controller = _$controller_;
-		$rootScope  = _$rootScope_;
-	}))
+		toDoFunctions = _toDoFunctions_;
+		// toDoItem = _toDoItem_;
 
-	it('should display empty list message if there are no 2dos', function() {
-		$rootScope.toDoList = [];
-		$rootScope.empty = true;
-		expect($rootScope.empty).toBe(true);
+		// $controller('todoListController', {$scope:$scope, toDoFunctions:toDoFunctions, toDoItem:toDoItem});
+	}));
 
-		$rootScope.$watch('toDoList', function(newValue, oldValue){
-			$rootScope.empty = false;
-		});
-
-		$rootScope.$digest(); // fake a change in $scope.toDoList 
-
-		expect($rootScope.empty).toBe(false);
+	it('should display empty message if toDoList is empty', function() {
+		
 	});
+
 });
