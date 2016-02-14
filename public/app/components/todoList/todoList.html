@@ -5,7 +5,7 @@
 
 	<div class="col-sm-2 hidden-xs"></div>
 
-	<div class="col-xs-12 col-sm-8" id="dataColumn" ng-repeat="toDo in toDoList" >
+	<div class="col-xs-12 col-sm-8" id="dataColumn">
 		<table class="table table-hover" ng-hide="empty">
 			<thead>
 				<tr>
@@ -16,7 +16,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
+				<tr ng-repeat="toDo in toDoList" >
 					<th scope="row">{{toDo.id}}</th>
 					<td>{{toDo.title}}</td>
 					<td>{{toDo.description}}</td>

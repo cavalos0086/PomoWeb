@@ -3,7 +3,7 @@ angular.module('pomoWebApp')
 		
 		$scope.item = {
 			title:'',
-			description: '',
+			description: 'none',
 			numPomodoros: 1
 		}
 
