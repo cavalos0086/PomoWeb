@@ -8,12 +8,12 @@
 	& > div#dataColumn{
 		margin-top:20px;
 		text-align:center;
-		& > h2{
+		& > div > h2{
 			color:$black;
 			text-align:center;
 			margin-bottom:20px;
 		}
-		& > a{
+		& > div > a{
 			color:$pomoColor;
 		}
 	}

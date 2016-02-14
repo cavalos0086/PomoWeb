@@ -63,11 +63,11 @@
   #list > div#dataColumn {
     margin-top: 20px;
     text-align: center; }
-    #list > div#dataColumn > h2 {
+    #list > div#dataColumn > div > h2 {
       color: #263647;
       text-align: center;
       margin-bottom: 20px; }
-    #list > div#dataColumn > a {
+    #list > div#dataColumn > div > a {
       color: #ba301e; }
   #list table > thead > tr > th {
     font-size: 20px; }
