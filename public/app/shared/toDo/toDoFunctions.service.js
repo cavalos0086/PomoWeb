@@ -8,7 +8,7 @@ angular.module('pomoWebApp')
 			$http.get('/db/retrieveList')
 				.then(function(data){
 					deferred.resolve(data);
-					console.log('func',data);
+					
 
 				}, function(data){
 					deferred.reject();

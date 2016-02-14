@@ -88,8 +88,10 @@
       margin-bottom: 20px; }
     #list > div#dataColumn > div > a {
       color: #ba301e; }
-  #list table > thead > tr > th {
-    font-size: 20px; }
+  #list table > thead > tr {
+    text-align: center; }
+    #list table > thead > tr > th {
+      font-size: 20px; }
   #list table > tbody > tr > td {
     font-size: 16px; }
 

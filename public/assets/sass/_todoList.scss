@@ -18,8 +18,11 @@
 		}
 	}
 
-	table > thead > tr > th{
-		font-size:20px;
+	table > thead > tr{
+		text-align:center;
+		& > th{
+			font-size:20px;
+		}
 	}
 
 	table > tbody > tr > td{
