@@ -13,8 +13,8 @@ describe('Landing Controller', function() {
 		$templateCache = _$templateCache_;
 
 		// we need to add the template entry into the templateCache if we every specify a templateUrl
-		$templateCache.put('app/components/home/home.html','');
 		$templateCache.put('app/components/landing/landing.html','');
+		$templateCache.put('app/components/todoList/todoList.html','');
 
 		$controller('landingController',{$location:$location, $timeout:$timeout, $scope:$scope});
 	}));
@@ -30,10 +30,16 @@ describe('Landing Controller', function() {
 		expect($location.$$url).toBe('');
 	});
 
-	it('should redirect to the home page after 3 seconds', function() {
+	it('should redirect to the todoList page after 5 seconds', function() {
+		$httpBackend.expectGET('app/components/home/home.html')
+			.respond(200);
+
 		$scope.goHome();
 		$timeout.flush(5000);
-		expect($location.$$url).toBe('/home');
+
+		$httpBackend.flush();
+		
+		expect($location.$$url).toBe('/home/todoList');
 	});
 
 	
