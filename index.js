@@ -33,14 +33,9 @@ client.connect();
 
 var query = client.query('DROP TABLE IF EXISTS toDoItems');
 var query1 = client.query('CREATE TABLE toDoItems(id SERIAL PRIMARY KEY, title varchar(200), description varchar(500), numPomodoros integer)');
-var query2 = client.query("INSERT INTO toDoItems (title, description, numPomodoros) values($1,$2,$3)",['sample1', 'toDo Desc', 2]);
-
-
 
 query1.on('end', function(){
-	query2.on('end', function(){
 		client.end();
-	})
 });
 
 
