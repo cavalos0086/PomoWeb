@@ -24,6 +24,7 @@
 					<td id="options" class="hidden">
 						<a ng-click="deleteToDo(toDo.id)"><i class="fa fa-trash-o"></i></a>
 						<a ng-click="openModal(toDo)"><i class="fa fa-pencil"></i></a>
+						<a ng-click="startClock(toDo)"><i class="fa fa-play-circle"></i></a>
 					</td>
 				</tr>
 			</tbody>
@@ -66,8 +67,7 @@
 					</div><!-- ./form-group-->
 
 				</form>
-
-
+ 
 			</div>
 			<div class="modal-footer">
 				
@@ -75,7 +75,26 @@
 				<button class="btn btn-danger" ng-click="cancel()">Close</button>
 			</div>
 		</script>
-	</div>
+	</div> <!-- EDIT MODAL-->
+
+
+
+	<div>
+		<script type="text/ng-template" id="timerModal.html">
+			<div class="modal-header">TIMER</div>
+			<div class="modal-body">
+				<h1>{{time}}</h1>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-primary" type="button" ng-click="start()">Start</button>
+				<button class="btn btn-danger" ng-click="cancel()">Close</button>
+			</div>
+		</script>
+	</div> <!-- TIMER MODAL-->
+
+
+
+
 
 </div><!-- ./row -->
 

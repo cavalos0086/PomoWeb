@@ -51,9 +51,7 @@ angular.module('pomoWebApp')
 				})
 		}
 
-		// Modal logic
-
-
+		// edit Modal logic
 
 		$scope.openModal = function(toDo){
 			$scope.toDo = toDo;
@@ -70,4 +68,30 @@ angular.module('pomoWebApp')
 
 		};
 
+
+		// timer Modal Logic
+
+		$scope.startClock = function(toDo){
+			$scope.toDo = toDo;
+			var modalInstance = $uibModal.open({
+				animation:true,
+				templateUrl:'timerModal.html',
+				controller:'timerModalCtrl',
+				size:'lg',
+				resolve:{
+					toDo:function(){
+						return $scope.toDo;
+					}
+				}
+			});
+		}
+
+
+
 	}])
+
+
+
+
+
+
