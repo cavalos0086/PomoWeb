@@ -1,9 +1,12 @@
 angular.module('pomoWebApp')
 	.controller('timerModalCtrl', ['$scope','$uibModalInstance','toDo','toDoFunctions','$timeout', function($scope, $uibModalInstance,toDo, toDoFunctions, $timeout){
 
+		var minAllow = '25';
+		var secAllow = '00';
+
 		$scope.toDo = toDo;
-		$scope.minutes = '01';
-		$scope.seconds = '00';
+		$scope.minutes = minAllow;
+		$scope.seconds = secAllow;
 		$scope.stillLeft = false;
 
 		 var tickInterval = 1000; //ms
@@ -14,7 +17,7 @@ angular.module('pomoWebApp')
 			$scope.seconds = (parseInt($scope.seconds) - 1).toString();
 
 			if($scope.seconds === '-1'){
-				$scope.seconds = '05';
+				$scope.seconds = '59';
 				$scope.minutes = (parseInt($scope.minutes) - 1).toString();
 				if(parseInt($scope.minutes) < 10){
 					$scope.minutes = '0'+ parseInt($scope.minutes).toString();
@@ -47,13 +50,10 @@ angular.module('pomoWebApp')
 
 			$timeout(tick, tickInterval);
 		}
-
-		
-
 		
 		$scope.start = function(){
-			$scope.minutes = '01';
-			$scope.seconds = '00';
+			$scope.minutes = minAllow;
+			$scope.seconds = secAllow;
 			$scope.stillLeft = false;
 			tick();
 		};
