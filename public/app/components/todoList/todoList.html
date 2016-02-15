@@ -9,7 +9,7 @@
 		<table class="table table-hover" ng-hide="empty">
 			<thead>
 				<tr>
-					<th>#</th>
+					
 					<th>Title</th>
 					<th>Description</th>
 					<th># of Pomodoros</th>
@@ -17,7 +17,7 @@
 			</thead>
 			<tbody>
 				<tr ng-repeat="toDo in toDoList| orderBy:'id'" class="column-{{toDo.id}}" ng-mouseover="displayOptions(toDo.id)" ng-mouseleave="hideOptions(toDo.id)">
-					<th scope="row">{{toDo.id}}</th>
+					
 					<td>{{toDo.title}}</td>
 					<td>{{toDo.description}}</td>
 					<td>{{toDo.numpomodoros}}</td>
@@ -81,14 +81,19 @@
 
 	<div>
 		<script type="text/ng-template" id="timerModal.html">
-			<div class="modal-header">TIMER</div>
+			<div class="modal-header">{{toDo.title}}</div>
 			<div class="modal-body">
 				<div class="row" style="text-align:center">
 					<div class="col-xs-12">
 						<h1>{{minutes}} : {{seconds}}</h1>
 					</div>
+					
 					<div class="col-xs-12">
 						<h5>Number of Pomodoros left: <br/> <span class="pomoLeft">{{toDo.numpomodoros}}</span></h5>
+					</div>
+
+					<div class="col-xs-12 my_success" ng-show="stillLeft">
+						<h3>Time is over</h3>
 					</div>
 				</div>
 			</div>

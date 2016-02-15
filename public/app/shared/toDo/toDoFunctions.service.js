@@ -31,10 +31,10 @@ angular.module('pomoWebApp')
 		};
 
 
-		this.delete = function(toDoId){
+		this.delete = function(toDo){
 			
 			var deferred = $q.defer();
-			$http.post('/db/deleteTodo', toDoId)
+			$http.post('/db/deleteTodo', toDo)
 				.then(function(){
 					deferred.resolve();
 				}, function(){

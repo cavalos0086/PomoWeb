@@ -86,6 +86,13 @@ angular.module('pomoWebApp')
 			});
 		}
 
+		$scope.$watch('toDo.numpomodoros', function(newValue, oldValue){
+			if(newValue === 0){
+				$scope.deleteToDo($scope.toDo.id);
+				$scope.populateToDos();
+			}
+		})
+
 
 
 	}])
