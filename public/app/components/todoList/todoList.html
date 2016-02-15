@@ -82,8 +82,15 @@
 	<div>
 		<script type="text/ng-template" id="timerModal.html">
 			<div class="modal-header">TIMER</div>
-			<div class="modal-body" style="text-align:center">
-				<h1>{{minutes}} : {{seconds}}</h1>
+			<div class="modal-body">
+				<div class="row" style="text-align:center">
+					<div class="col-xs-12">
+						<h1>{{minutes}} : {{seconds}}</h1>
+					</div>
+					<div class="col-xs-12">
+						<h5>Number of Pomodoros left: <br/> <span class="pomoLeft">{{toDo.numpomodoros}}</span></h5>
+					</div>
+				</div>
 			</div>
 			<div class="modal-footer">
 				<button class="btn btn-primary" type="button" ng-click="start()">Start</button>
