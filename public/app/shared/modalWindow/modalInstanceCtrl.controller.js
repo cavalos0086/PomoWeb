@@ -1,8 +1,9 @@
 angular.module('pomoWebApp')
-	.controller('modalInstanceCtrl',['$scope','$uibModalInstance','toDoList',function($scope, $uibModalInstance,toDoList){
+	.controller('modalInstanceCtrl',['$scope','$uibModalInstance','toDo','toDoFunctions',function($scope, $uibModalInstance,toDo, toDoFunctions){
 
-		$scope.toDoList =toDoList;
+		$scope.toDo =toDo;
 
+		
 		$scope.save = function(){
 			
 		};

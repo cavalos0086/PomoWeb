@@ -23,7 +23,7 @@
 					<td>{{toDo.numpomodoros}}</td>
 					<td id="options">
 						<a ng-click="deleteToDo(toDo.id)"><i class="fa fa-trash-o"></i></a>
-						<a ng-click="openModal()"><i class="fa fa-pencil"></i></a>
+						<a ng-click="openModal(toDo)"><i class="fa fa-pencil"></i></a>
 					</td>
 				</tr>
 			</tbody>
@@ -47,21 +47,21 @@
 					<div class="form-group">
 						<label for="todoTitle" class="col-sm-2" control-label>Title</label>
 						<div class="col-sm-10">
-							<input ng-model="item.title" type="text" class="form-control" id="todoTitle" placeholder="To-do Title" value={{item.title}}>
+							<input ng-model="toDo.title" type="text" class="form-control" id="todoTitle" placeholder="To-do Title" value=item.title>
 						</div>
 					</div> <!-- ./form-group-->
 
 					<div class="form-group">
 						<label for="todoDescription" class="col-sm-2" control-label>Description (optional)</label>
 						<div class="col-sm-10">
-							<input ng-model="item.description" type="text" class="form-control" id="todoDescription" placeholder="To-do Description">
+							<input ng-model="toDo.description" type="text" class="form-control" id="todoDescription" placeholder="To-do Description">
 						</div>
 					</div> <!-- ./form-group-->
 
 					<div class="form-group">
 						<label for="numPomodoros" class="col-sm-2" control-label>Number of Pomodoros</label>
 						<div class="col-sm-10">
-							<input type="number" class="form-control" id="numPomodoros" placeholder="number of Pomodoros needed (max 10)" min=1 max=10 value=1 ng-model="item.numPomodoros">
+							<input type="number" id="numPomodoros"  min=1 max=10 ng-model="toDo.numpomodoros">
 						</div>
 					</div><!-- ./form-group-->
 

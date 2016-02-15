@@ -60,7 +60,21 @@ app.post('/db/addTodo', function(req, res){
 
 
 app.put('/db/editTodo', function(req, res){
+	var toDo = req.body;
 
+	pg.connect(connectionString, function(err, client, done){
+		if(err){
+			return res.status(500).json({success:false, data:err});
+		}
+
+		var query = client.query("UPDATE toDoItems SET title=$1, description=$2, numpomodoros=$3", [toDo.title, toDo.description, toDo.numpomodoros]);
+
+		query.on('end', function(){
+			done();
+		});
+
+		return res.json();
+	})
 });
 
 app.post('/db/deleteTodo', function(req, res){

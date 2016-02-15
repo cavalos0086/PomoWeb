@@ -53,16 +53,17 @@ angular.module('pomoWebApp')
 
 		// Modal logic
 
-		
 
-		$scope.openModal = function(){
+
+		$scope.openModal = function(toDo){
+			$scope.toDo = toDo;
 			var modalInstance = $uibModal.open({
 				animation:true,
 				templateUrl:'myModalContent.html',
 				controller:'modalInstanceCtrl',
 				resolve:{
-					toDoList:function(){
-						return $scope.toDoList;
+					toDo:function(){
+						return $scope.toDo;
 					}
 				}
 			});
