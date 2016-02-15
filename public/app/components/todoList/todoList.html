@@ -81,7 +81,10 @@
 
 	<div>
 		<script type="text/ng-template" id="timerModal.html">
-			<div class="modal-header">{{toDo.title}}</div>
+			<div class="modal-header">
+			<p class="pull-left" style="display: inline"><span class="info">Title:</span> {{toDo.title}}</p>
+			<p class="pull-right" style="display: inline"><span class="info">Description:</span> {{toDo.description}}</p>
+			</div>
 			<div class="modal-body">
 				<div class="row" style="text-align:center">
 					<div class="col-xs-12">
