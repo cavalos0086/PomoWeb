@@ -1,5 +1,5 @@
 angular.module('pomoWebApp')
-	.controller('addTodoController', ['$scope','toDoItem','toDoFunctions',function($scope,toDoItem, toDoFunctions){
+	.controller('addTodoController', ['$scope','toDoItem','toDoFunctions', '$timeout',function($scope,toDoItem, toDoFunctions, $timeout){
 		
 		$scope.item = {
 			title:'',
@@ -21,10 +21,22 @@ angular.module('pomoWebApp')
 				$scope.titleMissing = true;
 				return;
 			} else{
+				$scope.error = false;
+				$scope.titleMissing = false;
+
 				toDoFunctions.add(obj).
 					then(function(){
 						$scope.message = 'Success';
 						$scope.success = true;
+						$scope.item = {
+							title:'',
+							description:'none',
+							numPomodoros:1
+						};
+
+						$timeout(function(){
+							$scope.success = false;
+						},2000);
 					},function(){
 						$scope.message = 'Error. Please try again';
 						$scope.error = true;

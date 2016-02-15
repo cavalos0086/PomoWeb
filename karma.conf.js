@@ -19,6 +19,8 @@ module.exports = function(config) {
       'node_modules/angular-mocks/angular-mocks.js',
       'node_modules/angular-ui-router/release/angular-ui-router.js',
       'node_modules/angular-route/angular-route.min.js',
+      'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
+      'node_modules/angular-animate/angular-animate.min.js',
       'public/app/app.js',
       'public/app/**/**/*.js',
       'specs/**/*.js'

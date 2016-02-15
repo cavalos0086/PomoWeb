@@ -13,26 +13,14 @@ describe('toDoList Controller', function() {
 		$controller('todoListController', {$scope:$scope, toDoFunctions:toDoFunctions, toDoItem:toDoItem});
 	}));
 
-	// xit('should set empty = false if toDoList size is greater than zero', function() {
-	// 	toDoList = ['item1', 'item2'];
+	describe('toDoList Controller', function() {
+		describe('Modal functionality', function() {
+			it('should have an openModal function', function() {
+				expect($scope.openModal).toBeDefined();
+			});
 
-	// 	$httpBackend.expectGET('/db/retrieveList')
-	// 		.respond(200, toDoList);
-
-	// 	$httpBackend.flush();
-	// 	expect($scope.empty).toEqual(false);
-
-	// });
-
-	// xit('should set empty = true if toDoList size is zero', function() {
-	// 	toDoList = [];
-
-	// 	$httpBackend.expectGET('/db/retrieveList')
-	// 	.respond(200, toDoList);
-
-	// 	$httpBackend.flush();
-	// 	expect($scope.empty).toEqual(true);
-
-	// });
+			
+		});
+	});
 
 });

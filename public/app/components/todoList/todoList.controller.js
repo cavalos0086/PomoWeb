@@ -1,5 +1,5 @@
 angular.module('pomoWebApp')
-	.controller('todoListController', ['$scope', 'toDoFunctions','toDoItem', function($scope, toDoFunctions,toDoItem){
+	.controller('todoListController', ['$scope', 'toDoFunctions','toDoItem', '$log','$uibModal',function($scope, toDoFunctions,toDoItem, $log, $uibModal){
 		$scope.toDoList = [];
 		$scope.empty = true;
 
@@ -51,4 +51,22 @@ angular.module('pomoWebApp')
 				})
 		}
 
-	}]);
+		// Modal logic
+
+		
+
+		$scope.openModal = function(){
+			var modalInstance = $uibModal.open({
+				animation:true,
+				templateUrl:'myModalContent.html',
+				controller:'modalInstanceCtrl',
+				resolve:{
+					toDoList:function(){
+						return $scope.toDoList;
+					}
+				}
+			});
+
+		};
+
+	}])

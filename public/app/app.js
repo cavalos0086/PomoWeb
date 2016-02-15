@@ -1,5 +1,7 @@
 angular.module('pomoWebApp',[
 	'ui.router',
+	'ngAnimate',
+	'ui.bootstrap',
 ])
 	.config(function($stateProvider, $urlRouterProvider){
 		$urlRouterProvider.otherwise('/');
