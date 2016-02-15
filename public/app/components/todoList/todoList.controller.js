@@ -8,7 +8,7 @@ angular.module('pomoWebApp')
 			toDoFunctions.retrieve()
 				.then(function(data){
 					$scope.toDoList = data.data;
-					// console.log('todoList', $scope.toDoList);
+					
 					if($scope.toDoList.length > 0){
 						$scope.empty = false;
 					}
@@ -29,12 +29,12 @@ angular.module('pomoWebApp')
 
 		$scope.displayOptions = function(id){
 			var toDoClass = 'column-' + id;
-			// $('.'+toDoClass).children('td#options').removeClass('hidden');
+			$('.'+toDoClass).children('td#options').removeClass('hidden');
 		}
 
 		$scope.hideOptions =function(id){
 			var toDoClass = 'column-' + id;
-			// $('.'+toDoClass).children('td#options').addClass('hidden');
+			$('.'+toDoClass).children('td#options').addClass('hidden');
 		}
 
 		$scope.deleteToDo = function(id){

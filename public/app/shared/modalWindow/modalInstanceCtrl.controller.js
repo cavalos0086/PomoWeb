@@ -5,7 +5,13 @@ angular.module('pomoWebApp')
 
 		
 		$scope.save = function(){
-			
+			toDoFunctions.edit(toDo)
+				.then(function(){
+					$scope.cancel();
+					
+				}, function(){
+
+				})
 		};
 
 		$scope.cancel = function(){
